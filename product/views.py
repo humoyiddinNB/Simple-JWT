@@ -79,9 +79,7 @@ class ProductDeleteView(APIView):
                 'msg' : "Bu sizning mahsulot emas"
             })
         product.delete()
-        return Response({
-            "msg" : f"{product.name} ochirildi"
-        })
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class ProductListView(APIView):

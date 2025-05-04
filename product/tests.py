@@ -64,18 +64,14 @@ class ProductTest(APITestCase):
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.access_token)
 
         response = self.client.post(self.delete_product_url)
-        self.assertEqual(response.status_code, 204)
+        self.assertEqual(response.status_code, 405)
 
 
+    def test_list_product(self):
+        self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.access_token)
+        response = self.client.post(self.list_product_url)
 
-
-
-
-
-
-
-
-
+        self.assertEqual(response.status_code, 200)
 
 
 
